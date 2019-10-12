@@ -36,6 +36,7 @@ export default class Home extends Vue {
   @Mutation private doneTodoItem!: (id: string) => void;
   @Getter private getCurrentTodoList!: ITodoItem[];
 
+  // 筛选出处于非编辑状态的todo list
   private get TodoListComputed() {
     const list = this.getCurrentTodoList.filter(
       item => item.mode !== Mode.edit
@@ -44,10 +45,12 @@ export default class Home extends Vue {
     return list;
   }
 
+  // 删除当前任务
   private delHandle(id: string) {
     this.deleteTodoItem(id);
   }
 
+  // 点击完成此任务
   private doneHandle(id: string) {
     this.doneTodoItem(id);
   }

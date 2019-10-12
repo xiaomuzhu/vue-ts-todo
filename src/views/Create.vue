@@ -74,7 +74,6 @@ export default class Create extends Vue {
   private selectIcon!: (payload: { id: string; icon: string }) => void;
   @Mutation
   private changeName!: (payload: { id: string; value: string }) => void;
-  // @State private todoItem!: ITodoItem[];
   @Getter private getCurrentTodoList!: ITodoItem[];
 
   // 获取当前将要创建的todo的id
@@ -103,9 +102,11 @@ export default class Create extends Vue {
     return color;
   }
 
+  // 改变背景色
   private changeColorHandle(color: string) {
     this.selectColor({ id: this.id, color });
   }
+  // 改变图标
   private handleIconHandle(name: string) {
     this.selectIcon({ id: this.id, icon: name });
   }
@@ -115,6 +116,8 @@ export default class Create extends Vue {
 
     return todo!.name;
   }
+
+  // 改变任务名称
   private set nameComputed(name) {
     this.changeName({ id: this.id, value: name });
   }

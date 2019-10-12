@@ -24,10 +24,7 @@ export const mutations: MutationTree<State> = {
       todo.iconName = payload.icon;
     }
   },
-  // 删除未定义好的任务
-  removeTodoItem(state: State) {
-    state.todoList.pop();
-  },
+
   // 将此任务删除
   deleteTodoItem(state: State, id: string) {
     const list: ITodoItem[] = state.todoList;
