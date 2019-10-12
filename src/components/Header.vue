@@ -2,16 +2,16 @@
   <header>
     <div>
       <van-icon
-        v-if="pageInfoComputed.icon.arrow === 'left'"
+        v-if="this.$route.name && pageInfoComputed.icon.arrow === 'left'"
         :name="pageInfoComputed.icon.name"
         size="1.5rem"
         @click="leftHandle"
       />
     </div>
-    <p>{{ pageInfoComputed.title }}</p>
+    <h3>{{ pageInfoComputed.title }}</h3>
     <div>
       <van-icon
-        v-if="pageInfoComputed.icon.arrow === 'right'"
+        v-if="this.$route.name && pageInfoComputed.icon.arrow === 'right'"
         :name="pageInfoComputed.icon.name"
         size="1.5rem"
         @click="rightHandle"
@@ -40,6 +40,7 @@ export default class Header extends Vue {
 
   private get pageInfoComputed() {
     const currentRouteName = this.$route.name;
+
     switch (currentRouteName) {
       case "home":
         return {
